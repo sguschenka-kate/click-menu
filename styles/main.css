@@ -1,0 +1,104 @@
+body {
+  margin: 0;
+  font-family: "Indie Flower", cursive;
+  font-size: 24px;
+}
+
+p {
+  margin: 0;
+}
+
+[id="nav__toggle"] {
+  display: none;
+}
+
+.nav {
+  width: 250px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: -250px;
+
+  transition: left 0.3s;
+
+  background: #fff0f5;
+  border: 1px solid #fdf5e6;
+  border-radius: 1%;
+}
+
+.nav__list {
+  list-style: none;
+}
+
+.nav__item:not(:first-child) {
+  margin-top: 15px;
+}
+
+.nav__link {
+  text-decoration: none;
+  color: #333333;
+}
+
+.nav__link:hover {
+  color: #cd7f32;
+}
+
+.nav__toggle {
+  position: absolute;
+  border: inherit;
+  left: 250px;
+  top: 30px;
+
+  display: block;
+  padding: 0px 11px 4px 9px;
+  cursor: pointer;
+  border-radius: 10%;
+  color: #dadada;
+  transition: color 0.25s ease-in-out;
+}
+
+.nav__toggle:after {
+  content: "\2630";
+  font-size: 40px;
+  text-decoration: none;
+  font-family: initial;
+}
+
+.nav__toggle:hover {
+  color: #333333;
+}
+
+.main {
+  background: #f2f3f4;
+  height: 100vh;
+}
+
+.main__wrapper {
+  text-align: center;
+  padding-top: 50px;
+  transition: transform 0.3s ease-out;
+}
+
+.main__content {
+  color: #606b56;
+}
+
+[id="nav__toggle"]:checked + .nav {
+  left: 0;
+  box-shadow: 0 0 13px #8a8a8a;
+  transition: left 0.2s ease-in;
+}
+
+[id="nav__toggle"]:checked + .nav > .nav__toggle {
+  left: auto;
+  right: 2px;
+  border: none;
+}
+
+[id="nav__toggle"]:checked + .nav > .nav__toggle:after {
+  content: "\2715";
+}
+
+[id="nav__toggle"]:checked ~ .main > .main__wrapper {
+  transform: translateX(250px);
+}
